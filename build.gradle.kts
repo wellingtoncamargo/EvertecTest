@@ -26,12 +26,15 @@ repositories {
 springBoot {
 	mainClass.set("com.EvertecTest.runner.Runner")
 }
+
+
 dependencies {
 
 	implementation("com.github.javafaker:javafaker:1.0.2")
-	testImplementation("junit:junit:4.13.1")
+	implementation("org.seleniumhq.selenium:selenium-java:4.38.0")
 	testImplementation("org.springframework.boot:spring-boot-starter-test:3.1.0")
 	testImplementation("io.rest-assured:rest-assured:5.3.1")
+	testImplementation("junit:junit:4.13.2")
 }
 
 tasks.withType<JavaCompile> {
