@@ -91,4 +91,19 @@ public class APIConsultaRacasTest {
         Assert.assertNotEquals(temimagem,temimagem2);
     }
 
+    @Test
+    @Tag("Negativo")
+    @DisplayName("Consultando dados de imagens por dados invalidos")
+    @Description("Esperando status 404 e que contenha uma mensagem de erro")
+    public void ConsultaListaImagensComDadosInvalidos() {
+        Response resp = RestAssured
+                .given()
+                .when()
+                .get(baseURI + "/breed/xpto/images");
+        resp.then()
+                .assertThat()
+                .statusCode(404)
+                .body("message", equalTo("Breed not found (main breed does not exist)"));
+    }
+
 }
