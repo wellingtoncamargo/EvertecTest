@@ -21,7 +21,7 @@ jobs:
           java-version: '17'
 
       - name: Build com Gradle (sem rodar testes)
-        run: ./gradlew build -x test
+        run: gradle build -x test
 
   test:
     name: Testes
