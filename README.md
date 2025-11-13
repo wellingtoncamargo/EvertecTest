@@ -31,47 +31,57 @@ abaixo para rodar os testes automatizados.
 Abaixo está a lista de frameworks utilizados nesse projeto
 
 * Java Faker - Responsável pela geracao de dados sintéticos
-* Rest-Assured - Responsável pelos validações de teste
+* Rest-Assured - Responsável pelos validações de teste de API
+* Selenium 4 - Responsável pelos validações de teste Web
 
 ## ESTRUTURA DO PROJETO
 
-| Diretório                            | finalidade                         | 
-|--------------------------------------|------------------------------------|
-| src\main\java\com\EvertecTest\config  | Classe de configuração de ambiente |
-| src\test\java\com\EvertecTest\feature | Classe de testes                   |
-| report\allureReport                  | Report de execução dos testes      |
+| Diretório                             | finalidade                               | 
+|---------------------------------------|------------------------------------------|
+| src\main\java\com\EvertecTest\config  | Classe de configuração de ambiente       |
+| src\main\java\com\EvertecTest\core    | Classe de configuração do Selenium       |
+| src\main\java\com\EvertecTest\support | Classe de configuração do BrowserFactory |
+| src\test\java\com\EvertecTest\feature | Classe de testes                         |
+| src\test\java\com\EvertecTest\page    | Classe de Classe de suporte PageObject   |
+| report\allureReport                   | Report de execução dos testes            |
 
 ## Plano de Teste e Estratégia de Testes para API
 * ### Objetivo do Teste:
-    O objetivo deste teste é garantir que a API funcione corretamente, atendendo aos requisitos de funcionalidade, desempenho e segurança.
+  * O objetivo deste teste é garantir que a API funcione corretamente, atendendo aos requisitos de funcionalidade, desempenho e segurança.
+  
+  * O objetivo deste teste WEB é garantir que a consulta realizada no blog retorne conforme esperado
 
 * ### Escopo do Teste:
   O teste abrangerá as principais funcionalidades da API, incluindo:
 
-  * Autenticação e autorização.
-  * Requisições e respostas dos endpoints.
-  * Manipulação correta de dados.
-  * Tratamento adequado de erros.
+  * Consulta de dados por raças gerais.
+  * Consulta de imagens por raça definida.
+  * Consulta de Imagens aleatórias por raça definida
+
+  O teste abrangerá as principais funcionalidades da Pagina Web, incluindo:
+
+  * Consulta de assunto específico.
+  * Consulta sem assunto
 
 * ### Ambiente de Teste:
-  * A API será testada nos seguintes ambientes:
+  * Será testada nos seguintes ambientes:
     * Ambiente de teste produção.
 
 * ### Estratégia de Teste:
 
   * Testes de Integração:
 
-    * Testaremos a interação entre diferentes partes da API.
+    * Testaremos a interação entre diferentes partes.
     Verificaremos se os componentes se comunicam corretamente e se as funcionalidades são integradas sem problemas.
   
   * Testes de Funcionalidade:
 
-    * Testaremos os principais casos de uso da API, como criar, ler, e atualizar recursos.
+    * Testaremos os principais casos de uso como consulta.
       Verificaremos se as operações funcionam conforme esperado e se os dados são consistentes.
 
   * Testes de Exceção:
 
-    * Verificaremos como a API lida com situações excepcionais, como entradas inválidas ou erros internos.
+    * Verificaremos como as aplicações lidam com situações excepcionais, como entradas inválidas ou erros internos.
       Garantiremos que as mensagens de erro sejam claras e úteis para os desenvolvedores.
 
 * ### Critérios de Saída:
@@ -82,33 +92,11 @@ Abaixo está a lista de frameworks utilizados nesse projeto
 
 * ### Recursos Necessários:
   * Acesso à documentação da API.
+  * Acesso à Pagina Agibank.
   * Ferramentas de teste, como JUnit, Postman, JMeter, etc.
   * Equipe de teste qualificada.
 
-## Bugs identificados
-```
-  Bug_01 - Durante a Execução dos testes ao realizar a validação no cenário "obtendoTokenDeUsuarioNaApiAuthLogin200" o codigo de retorno esperado é o 201,
-  porém está retornando 200, devengente do informado na documentação. 
-  
-  Bug_02 - Durante a Execução dos testes ao realizar a validação no cenário "CriandoProdutoApiAuthProducts200" o codigo de retorno esperado é o 201,
-  porém está retornando 200, devengente do informado na documentação. 
-  
-  Bug_03 - Durante a Execução dos testes ao realizar a validação no cenário "CriandoProdutoDuplicadoApiAuthProducts" o codigo de retorno esperado é o 400,
-  porém está retornando 200, pois se trata de uma inserção duplicada de item.
-  
-  Bug_04 - Durante a Execução dos testes ao realizar a validação no cenário "ConsultaApiAuthProductsPorIdInvalido" o codigo de retorno esperado é o 404,
-  porém está retornando 200, pois se trata de uma consulta de item inválido.
-  
-  Bug_05 - Durante a Execução dos testes ao realizar a validação no cenário "ConsultaApiAuthProductsSemToken403" o codigo de retorno esperado é o 403,
-  porém está retornando 401, pois se trata de uma consulta de produtos sem a permissão necessária..
-```
 
-## Melhorias identificado
-```
-  01 - Melhoria na documentação referente a codigo e mensagens de retorno, pois há metodos que contemplam apenas o fluxo principal.
-  02 - Mapear no documento fluxos alternativos das rotas dos end-points, informando parametros como limit e offset e ids.
-  03 - Incluir validação de metodo, pois end-points que são gets quando alterados para outro tipo retornam 301 quando deveria retornar 405
-```
 
 ## LINKS DE APOIO
 
