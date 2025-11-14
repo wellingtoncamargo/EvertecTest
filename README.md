@@ -14,7 +14,7 @@ Requisitos de software e hardware necessários para executar este projeto de aut
 
 ## DOWNLOAD DO PROJETO PARA SUA MÁQUINA LOCAL
 ```
-git clone https://gitlab.com/javasicred/EvertecTest.git
+git clone https://github.com/wellingtoncamargo/EvertecTest.git
 ```
 
 ## COMANDO PARA EXECUTAR OS TESTES
