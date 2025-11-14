@@ -13,15 +13,13 @@ public class EnvVariables {
         return props;
     }
 
-    private static String dotenv(String key) {
+    private static String dotenv() {
         try {
-            return getProp().getProperty(key);
+            return getProp().getProperty("BASE_URL");
         } catch (IOException ex) {
-            return System.getenv(key);
+            return System.getenv("BASE_URL");
         }
     }
 
-    public static String BASE_URL = dotenv("BASE_URL");
-    public static String AUTH_BASE_URL = dotenv("AUTH_BASE_URL");
-    public static String USER = dotenv("USER");
+    public static String BASE_URL = dotenv();
 }

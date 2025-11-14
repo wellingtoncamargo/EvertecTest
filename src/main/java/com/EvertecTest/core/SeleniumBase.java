@@ -1,8 +1,6 @@
 package com.EvertecTest.core;
 
 import com.EvertecTest.support.DriverFactory;
-//import org.junit.After;
-//import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 
 import java.time.Duration;
